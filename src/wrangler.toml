@@ -10,10 +10,7 @@ compatibility_flags = ["nodejs_compat"]
 
 
 
-# Development configuration
-[env.development]
-name = "schemes-management-worker-dev"
-vars = { NODE_ENV = "development" }
+
 
 [[env.development.kv_namespaces]]
 binding = "KV_STORE"

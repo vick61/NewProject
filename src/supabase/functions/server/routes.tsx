@@ -1,4 +1,4 @@
-import { Hono } from 'npm:hono'
+import { Hono } from 'https://esm.sh/hono'
 import * as kv from './kv_store.tsx'
 import { performSchemeCalculation } from './helpers.tsx'
 

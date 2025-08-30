@@ -1,5 +1,11 @@
-import { createClient } from 'npm:@supabase/supabase-js'
-import { Context } from 'npm:hono'
+import { Hono } from 'https://esm.sh/hono'
+import { cors } from 'https://esm.sh/hono/cors'
+import { logger } from 'https://esm.sh/hono/logger'
+import { createClient } from 'https://esm.sh/@supabase/supabase-js'
+
+
+
+
 
 const supabase = createClient(
   Deno.env.get('SUPABASE_URL')!,

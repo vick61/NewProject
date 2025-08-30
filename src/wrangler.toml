@@ -37,6 +37,4 @@ vars = {
 }
 
 
-[[env.development.kv_namespaces]]
-binding = "KV_STORE"
-preview_id = "YOUR_PREVIEW_KV_NAMESPACE_ID"  # Replace this as needed
+

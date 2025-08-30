@@ -3,9 +3,13 @@
  * Adapts the existing Supabase Edge Functions to work with Cloudflare Workers
  */
 
-import { Hono } from 'hono'
-import { cors } from 'hono/cors'
-import { logger } from 'hono/logger'
+
+
+import { Hono } from 'https://esm.sh/hono'
+import { cors } from 'https://esm.sh/hono/cors'
+import { logger } from 'https://esm.sh/hono/logger'
+import { createClient } from 'https://esm.sh/@supabase/supabase-js'
+
 
 // Types for Cloudflare Worker environment
 interface Env {

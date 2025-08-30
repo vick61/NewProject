@@ -3,19 +3,12 @@ name = "schemes-management-worker"
 main = "src/worker/index.ts"  
 compatibility_date = "2025-08-30"
 
-# KV and environment vars (add if applicable)
-# [[kv_namespaces]]
-# binding = "SCHEMES_KV"
-# id = "your-kv-namespace-id"
-
 
 compatibility_flags = ["nodejs_compat"]
 
 
 
-[build]
-command = "npm run build:worker"
-cwd = "./"
+
 
 # Development configuration
 [env.development]

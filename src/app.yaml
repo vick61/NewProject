@@ -1,0 +1,54 @@
+# Google App Engine configuration
+runtime: nodejs18
+
+# Environment variables
+env_variables:
+  NODE_ENV: production
+
+# Automatic scaling
+automatic_scaling:
+  min_instances: 0
+  max_instances: 10
+  target_cpu_utilization: 0.6
+
+# Static file handlers for built assets
+handlers:
+  # Handle static assets with long cache
+  - url: /static
+    static_dir: dist/static
+    expiration: "1y"
+    
+  # Handle other assets
+  - url: /assets
+    static_dir: dist/assets
+    expiration: "1y"
+    
+  # Handle images and other media
+  - url: /(.*\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot))$
+    static_files: dist/\1
+    upload: dist/(.*\.(ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot))$
+    expiration: "1y"
+    
+  # Handle CSS and JS files
+  - url: /(.*\.(css|js|map))$
+    static_files: dist/\1
+    upload: dist/(.*\.(css|js|map))$
+    expiration: "1y"
+    
+  # Serve index.html for all other routes (SPA)
+  - url: /.*
+    static_files: dist/index.html
+    upload: dist/index.html
+    
+# Skip files that shouldn't be uploaded
+skip_files:
+  - ^(.*/)?#.*#$
+  - ^(.*/)?.*~$
+  - ^(.*/)?.*\.py[co]$
+  - ^(.*/)?.*/RCS/.*$
+  - ^(.*/)?\..*$
+  - ^(.*/)?node_modules/.*$
+  - ^(.*/)?src/.*$
+  - ^(.*/)?components/.*$
+  - ^(.*/)?supabase/.*$
+  - ^(.*/)?test-data/.*$

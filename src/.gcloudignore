@@ -1,0 +1,42 @@
+# This file specifies files that are intentionally untracked by gcloud
+# for uploads to Google Cloud Platform.
+
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Source files (we only need built files)
+src/
+components/
+supabase/functions/
+test-data/
+guidelines/
+
+# Development files
+.env
+.env.local
+.env.development
+.env.test
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# Build artifacts that we don't need
+*.tsbuildinfo
+coverage/
+
+# Documentation (unless specifically needed)
+*.md
+!README.md
+
+# Other common files to ignore
+*.swp
+*.swo
+*~
+.sass-cache/

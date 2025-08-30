@@ -1,0 +1,57 @@
+{
+  "name": "schemes-management-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:worker": "esbuild worker/index.ts --bundle --format=esm --target=es2022 --outfile=worker/index.js",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "deploy-cloudflare": "chmod +x deploy-cloudflare.sh && ./deploy-cloudflare.sh",
+    "deploy-now": "chmod +x deploy-quick.sh && ./deploy-quick.sh",
+    "deploy": "./deploy-gcp.sh",
+    "setup": "./environment-setup.sh",
+    "make-executable": "chmod +x *.sh && chmod +x deploy-scripts/*.sh 2>/dev/null || true",
+    "cf:worker:deploy": "wrangler deploy --env production",
+    "cf:worker:dev": "wrangler dev --env development",
+    "cf:pages:deploy": "wrangler pages deploy dist --project-name schemes-management",
+    "cf:setup": "./cloudflare-setup.sh",
+    "setup-local": "chmod +x setup-for-figma.sh && ./setup-for-figma.sh",
+    "firebase:deploy": "firebase deploy",
+    "gcp:deploy-storage": "gsutil -m cp -r dist/* gs://YOUR_BUCKET_NAME/",
+    "gcp:deploy-app-engine": "gcloud app deploy app.yaml",
+    "gcp:deploy-cloud-run": "gcloud run deploy schemes-management --source . --platform managed --region us-central1 --allow-unauthenticated"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "lucide-react": "latest",
+    "sonner": "2.0.3",
+    "react-hook-form": "7.55.0",
+    "recharts": "latest",
+    "@supabase/supabase-js": "latest",
+    "hono": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "tailwindcss": "^4.0.0",
+    "wrangler": "^3.0.0",
+    "esbuild": "^0.19.0",
+    "@cloudflare/workers-types": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

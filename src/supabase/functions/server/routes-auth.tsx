@@ -1,4 +1,4 @@
-import { Hono } from 'npm:hono'
+import { Hono } from 'https://esm.sh/hono'
 import { signUpUser } from './auth.tsx'
 
 export function setupAuthRoutes(app: Hono) {

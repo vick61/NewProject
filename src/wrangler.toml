@@ -1,6 +1,6 @@
 
 name = "schemes-management-worker"
-main = "src/worker/index.ts"  # 👈 MUST point to your worker entry file!
+main = "src/worker/index.ts"  
 compatibility_date = "2025-08-30"
 
 # KV and environment vars (add if applicable)

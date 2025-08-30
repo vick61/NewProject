@@ -1,30 +1,8 @@
 
 name = "schemes-management-worker"
-main = "src/worker/index.ts"  
+main = "src/worker/index.ts"
 compatibility_date = "2025-08-30"
-
-
 compatibility_flags = ["nodejs_compat"]
-
-
-
-
-
-
-
-[[env.development.kv_namespaces]]
-binding = "KV_STORE"
-preview_id = "YOUR_PREVIEW_KV_NAMESPACE_ID"  # Replace with preview KV namespace ID
-
-# Routes - customize based on your domain
-[[env.production.routes]]
-pattern = "api.yourdomain.com/*"
-zone_name = "yourdomain.com"
-
-# For custom domain (optional)
-# [[env.production.routes]]
-# pattern = "schemes-api.yourdomain.com/*"
-# zone_name = "yourdomain.com"
 
 [env.development]
 name = "schemes-management-worker-dev"
@@ -32,6 +10,28 @@ vars = {
   NODE_ENV = "development",
   ALLOWED_ORIGINS = "http://localhost:5173,https://schemes-management-dev.pages.dev"
 }
+
+[[env.development.kv_namespaces]]
+binding = "KV_STORE"
+preview_id = "YOUR_PREVIEW_KV_NAMESPACE_ID"  # Replace this with actual preview namespace ID
+
+[env.production]
+name = "schemes-management-worker"
+vars = {
+  NODE_ENV = "production",
+  ALLOWED_ORIGINS = "https://schemes-management.pages.dev"
+}
+
+[[env.production.routes]]
+pattern = "api.yourdomain.com/*"
+zone_name = "yourdomain.com"
+
+# Optional: Add another custom domain route
+# [[env.production.routes]]
+# pattern = "schemes-api.yourdomain.com/*"
+# zone_name = "yourdomain.com"
+
+
 
 
 

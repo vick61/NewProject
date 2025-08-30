@@ -1,8 +1,9 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-import { Hono } from 'npm:hono'
-import { cors } from 'npm:hono/cors'
-import { logger } from 'npm:hono/logger'
-import { createClient } from 'npm:@supabase/supabase-js'
+import { Hono } from 'https://esm.sh/hono'
+import { cors } from 'https://esm.sh/hono/cors'
+import { logger } from 'https://esm.sh/hono/logger'
+import { createClient } from 'https://esm.sh/@supabase/supabase-js'
+
 import { setupRoutes } from './routes-fixed.tsx'
 import { setupAuthRoutes } from './routes-auth.tsx'
 import { setupDeleteCategoryRoutes } from './routes-delete-category.tsx'

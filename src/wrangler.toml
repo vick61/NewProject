@@ -11,20 +11,7 @@ compatibility_date = "2025-08-30"
 
 compatibility_flags = ["nodejs_compat"]
 
-# Environment variables for production
-[env.production]
-name = "schemes-management-worker"
-vars = { NODE_ENV = "production" }
 
-# KV namespace for data storage (equivalent to your Supabase KV)
-[[env.production.kv_namespaces]]
-binding = "KV_STORE"
-id = "YOUR_KV_NAMESPACE_ID"  # Replace with actual KV namespace ID after creation
-
-# Environment variables (secrets) - set via wrangler secret put
-# SUPABASE_URL - Your Supabase URL
-# SUPABASE_SERVICE_ROLE_KEY - Your Supabase service role key
-# SUPABASE_ANON_KEY - Your Supabase anon key
 
 [build]
 command = "npm run build:worker"
@@ -49,9 +36,14 @@ zone_name = "yourdomain.com"
 # pattern = "schemes-api.yourdomain.com/*"
 # zone_name = "yourdomain.com"
 
-# CORS settings for your React app
-[env.production.vars]
-ALLOWED_ORIGINS = "https://schemes-management.pages.dev,https://localhost:5173"
+[env.development]
+name = "schemes-management-worker-dev"
+vars = {
+  NODE_ENV = "development",
+  ALLOWED_ORIGINS = "http://localhost:5173,https://schemes-management-dev.pages.dev"
+}
 
-[env.development.vars]
-ALLOWED_ORIGINS = "http://localhost:5173,https://schemes-management-dev.pages.dev"
+
+[[env.development.kv_namespaces]]
+binding = "KV_STORE"
+preview_id = "YOUR_PREVIEW_KV_NAMESPACE_ID"  # Replace this as needed

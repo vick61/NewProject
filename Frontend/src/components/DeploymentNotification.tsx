@@ -20,7 +20,7 @@ export default function DeploymentNotification() {
             <AlertDescription className="text-blue-800">
               <div className="flex items-center justify-between">
                 <div className="flex-1 mr-4">
-                  <strong>✅ Using Supabase Backend</strong> - Ready to upgrade to Cloudflare for better performance!
+                  <strong>“Want to test speed? Try creating a scheme today—it’ll take seconds, not minutes!”!
                   <div className="text-xs opacity-75 mt-1">
                     Current: {backendUrl}
                   </div>
